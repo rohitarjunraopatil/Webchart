@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebCalculus</title>
+  <script type="module">
+    import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
+    customElements.define("latex-js", LaTeXJSComponent)
+  </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <style>
+    section {
+      height: auto; /* Set the height of sections to the full viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      padding:10px;
+      margin:10px;
+      border:1px solid black;
+      border-radius:10px;
+    }
+
+  </style>
+
+<script>
+  // Function to smoothly scroll to sections when clicked on navigation links
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="navbar">
+  <a href="wdmini.html"><b><span style="font-size:36px;">WebCalc</span></b><hr></a>
+  <a href="#pde" onclick="">Partial Differential Equation</a>
+  <a href="#apde" onclick="">Application of Partial Differential equations</a>
+  <a href="#fseries">Fourier Series</a>
+  <a href="#ctrac">Curve Tracing</a>
+  <a href="#mint">Multiple Integration</a>
+  <a href="#deq">Differential Equations</a>
+</div>
+
+  
+<!-- Sections with unique IDs -->
+
+<section id="pde">
+     <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
+        \documentclass{article}
+\usepackage{amsmath}
+\title{Partial Differential Equations}
+\begin{document}
+\maketitle
+\section{Introduction to Partial Differential Equations}
+Partial differential equations (PDEs) involve functions of several variables and their partial derivatives. They are used to describe various physical phenomena in fields such as physics, engineering, and mathematics.
+\section{Types of PDEs}
+There are several types of partial differential equations, including:
+\begin{itemize}
+    \item Elliptic equations
+    \item Parabolic equations
+    \item Hyperbolic equations
+\end{itemize}
+
+\section{Examples}
+\subsection{Heat Equation}
+The heat equation is a parabolic partial differential equation given by:
+\[
+\frac{\partial u}{\partial t} = k \nabla^2 u
+\]
+where $u(x, t)$ represents temperature distribution, $k$ is the thermal conductivity, and $\nabla^2$ denotes the Laplace operator.
+
+\subsection{Wave Equation}
+The wave equation is a hyperbolic partial differential equation expressed as:
+\[
+\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u
+\]
+where $u(x, t)$ represents the displacement of a wave, $c$ is the wave velocity, and $\nabla^2$ denotes the Laplace operator.
+
+\section{Conclusion}
+Partial differential equations play a crucial role in modeling various physical phenomena and are fundamental in many areas of science and engineering.
+
+\end{document}
+
+    </latex-js>
+</section>
+
+    <section id="apde">     <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
+\documentclass{article}
+\usepackage{amsmath}
+\title{Application Of Partial Differential Equations}
+\begin{document}
+\maketitle
+\section{Application of Partial Differential Equations}
+
+Consider the heat equation, a classic partial differential equation (PDE) used to describe the distribution of heat in a given region. It is defined as:
+
+\[
+\frac{\partial u}{\partial t} = \alpha \nabla^2 u
+\]
+
+where \( u(x, y, z, t) \) represents the temperature distribution at coordinates \((x, y, z)\) and time \(t\), and \( \alpha \) is the thermal diffusivity.
+
+Let's apply this equation to a specific scenario. Consider a one-dimensional rod of length \( L \), with its ends maintained at constant temperatures \( T_0 \) and \( T_L \). The initial temperature distribution along the rod is \( u(x,0) = f(x) \).
+
+The solution to the heat equation under these conditions can be found using appropriate boundary and initial conditions. For instance, the solution might take the form:
+
+\[
+u(x,t) = \sum_{n=1}^{\infty} B_n \sin \left( \frac{n\pi x}{L} \right) e^{-\alpha \left( \frac{n\pi}{L} \right)^2 t}
+\]
+
+where \( B_n \) are coefficients determined by the initial temperature distribution \( f(x) \).
+
+This solution describes how the temperature at any point along the rod evolves over time, considering the heat diffusion and boundary conditions.
+
+\end{document}
+</latex-js></section>
+<section id="fseries">     <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\title{Fourier Series}
+\begin{document}
+\maketitle
+\section{Fourier Series}
+
+The Fourier series represents a function \( f(x) \) as a sum of sines and cosines (or complex exponentials) weighted by coefficients. For a periodic function \( f(x) \) with period \( 2L \), the Fourier series is given by:
+
+\[
+f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos \left( \frac{n\pi x}{L} \right) + b_n \sin \left( \frac{n\pi x}{L} \right) \right)
+\]
+
+where the coefficients \( a_0, a_n, \) and \( b_n \) are determined by integrating the function over the interval \( (-L, L) \):
+
+\[
+a_0 = \frac{1}{L} \int_{-L}^{L} f(x) \, dx
+\]
+
+\[
+a_n = \frac{1}{L} \int_{-L}^{L} f(x) \cos \left( \frac{n\pi x}{L} \right) \, dx
+\]
+
+\[
+b_n = \frac{1}{L} \int_{-L}^{L} f(x) \sin \left( \frac{n\pi x}{L} \right) \, dx
+\]
+
+The coefficients \( a_0, a_n, \) and \( b_n \) represent the DC offset and the amplitudes of the cosine and sine terms, respectively. The Fourier series provides a way to approximate a periodic function using an infinite sum of trigonometric functions.
+
+\end{document}
+</latex-js></section>
+<section id="ctrac"><latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\title{Curve Tracing}
+\begin{document}
+\maketitle
+\section{Curve Tracing in Calculus}
+
+Curve tracing involves analyzing and sketching the curves represented by functions. It's an essential part of calculus that helps in understanding the behavior of functions.
+
+\subsection{Key Aspects}
+
+\begin{itemize}
+    \item \textbf{Domain and Range:} Determine the domain and range of the function to understand the possible values it can take.
+    \item \textbf{Symmetry:} Check for symmetry properties like even, odd, or periodic functions, which can simplify the sketching process.
+    \item \textbf{Intercepts:} Find the x and y-intercepts of the function to locate where it intersects the axes.
+    \item \textbf{Asymptotes:} Identify vertical, horizontal, and oblique asymptotes, if any, which indicate behavior at extreme values.
+    \item \textbf{Critical Points:} Locate critical points (where the derivative is zero or undefined) to identify local extrema and inflection points.
+    \item \textbf{Concavity:} Determine the concavity of the function to sketch the curve accurately.
+\end{itemize}
+
+
+Curve tracing helps in visualizing and understanding the behavior of functions, aiding in solving problems related to calculus and real-world applications.
+
+\end{document}
+
+</latex-js></section>
+
+<section id="mint">     <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
+\documentclass{article}
+\usepackage{amsmath}
+\title{Multiple Integration}
+\begin{document}
+\maketitle
+
+\section{Multiple Integration}
+
+Consider the double integral \( \iint\limits_{R} f(x, y) \,dx\,dy \), representing the integration of a function \( f(x, y) \) over a region \( R \) in the \(xy\)-plane.
+
+For instance, let's evaluate the double integral \( \iint\limits_{R} (x^2 + y^2) \,dx\,dy \) over the region \( R \) defined by \( 0 \leq x \leq 1 \) and \( 0 \leq y \leq 2 \).
+
+Similarly, a triple integral \( \iiint\limits_{V} g(x, y, z) \,dx\,dy\,dz \) represents the integration of a function \( g(x, y, z) \) over a region \( V \) in three-dimensional space.
+
+For example, consider evaluating the triple integral \( \iiint\limits_{V} (x^2 + y^2 + z^2) \,dx\,dy\,dz \) over the region \( V \) defined by \( 0 \leq x \leq 1 \), \( 0 \leq y \leq 2 \), and \( 0 \leq z \leq 3 \).
+
+\end{document}
+
+</latex-js></section>
+<section id="deq">     <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
+\documentclass{article}
+\usepackage{amsmath}
+\title{Differential Equations}
+\begin{document}
+\maketitle
+\section{Differential Equations}
+
+Differential equations are equations that involve derivatives of unknown functions. They are fundamental in describing how quantities change and are used in various fields of science and engineering.
+
+\subsection{Types of Differential Equations}
+
+\begin{enumerate}
+    \item \textbf{Ordinary Differential Equations (ODEs):} These equations involve derivatives of a function with respect to a single independent variable.
+    \item \textbf{Partial Differential Equations (PDEs):} These equations involve derivatives of a function with respect to multiple independent variables.
+\end{enumerate}
+
+\subsection{Classification}
+
+\begin{itemize}
+    \item \textbf{Linear vs. Nonlinear:} Differential equations are classified as linear if they are linear in the unknown function and its derivatives; otherwise, they are nonlinear.
+    \item \textbf{Order of Differential Equations:} The order of a differential equation is the order of the highest derivative present in the equation.
+    \item \textbf{Homogeneous vs. Non-homogeneous:} An equation is homogeneous if the right-hand side is zero; otherwise, it is non-homogeneous.
+\end{itemize}
+  
+\subsection{Solution Techniques}
+
+There are various methods to solve differential equations, including separation of variables, integrating factors, exact equations, and using specific solution formulas for certain types of equations.
+
+\end{document}
+
+</latex-js></section>
+
+</body>
+</html>

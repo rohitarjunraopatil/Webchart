@@ -1,0 +1,26 @@
+/* Basic styles for the navbar */
+.navbar {
+  background-color: #333;
+  width: 200px;
+  position: fixed;
+  height: 100%;
+}
+
+/* Style for the links in the navbar */
+.navbar a {
+  display: block;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+/* Style for active link in the navbar */
+.navbar a.active {
+  background-color: #555;
+}
+
+/* Style for the content section */
+.content {
+  margin-left: 220px; /* Adjust to accommodate the navbar width */
+  padding: 20px;
+}
